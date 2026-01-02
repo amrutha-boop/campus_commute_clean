@@ -44,6 +44,11 @@ class _LoginScreenState extends State<LoginScreen> {
           email: email,
           password: password.isEmpty ? '123456' : password,
         );
+
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email,
+          password: password.isEmpty ? '123456' : password,
+        );
       } else {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: Text("Login failed: ${e.code}")));
